@@ -25,7 +25,7 @@ const CreatePage: React.FC = () => {
   }
 
   return (
-    <div className="AddPage">
+    <div className="create-page">
       <CreatePair
         firstToken={firstToken || ''}
         secondToken={secondToken || ''}

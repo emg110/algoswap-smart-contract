@@ -1,34 +1,35 @@
-.CreatePair-modal {
+.create-pair-modal {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  .CreatePair-modal-header {
+  &-header {
     display: flex;
     padding: 10px;
     font-size: 18px;
     border-bottom: 1px solid lightgray;
     font-weight: 700;
-    .CreatePair-modal-header-image {
+
+    &-image {
       display: flex;
       align-items: center;
       margin-right: 5px;
     }
   }
 
-  .CreatePair-modal-supply-summary {
+  &-summary {
     display: flex;
     flex-direction: column;
 
-    .CreatePair-modal-supply-summary-info {
+    &-info {
       text-align: left;
       font-size: 20px;
       padding: 5px;
     }
   }
 
-  .CreatePair-modal-subtitle {
+  &-subtitle {
     font-size: 12px;
     font-style: italic;
     color: gray;
@@ -37,7 +38,7 @@
     padding: 15px;
   }
 
-  .CreatePair-modal-supply-details {
+  &-details {
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -45,21 +46,18 @@
     margin-top: 10px;
     border-radius: 12px;
     border: 2px solid #a30786;
-    .CreatePair-modal-supply-details-info {
+
+    &-info {
       display: flex;
       justify-content: space-between;
       padding: 5px;
     }
-
-    .CreatePair-modal-bottom {
-      margin-top: 25px;
-    }
   }
 
-  .CreatePair-modal-bottom {
+  &-bottom {
     margin-top: 25px;
 
-    .CreatePair-modal-button {
+    &__button {
       background-color: #a30786;
       color: #ffffff;
       padding: 10px 15px;

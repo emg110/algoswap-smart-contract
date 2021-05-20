@@ -6,15 +6,14 @@
 //@ts-nocheck
 import React from 'react';
 import {useDispatch} from 'react-redux';
-
 import {setAccountAddress, setAccountNet} from '../../redux/actions';
 import {LEDGER_NAME} from '../../services/constants';
 
 /* eslint-disable */
 import Rodal from 'rodal';
-import 'rodal/lib/rodal.css';
-
 import {connectToAlgoSigner} from '../../utils/connectToAlgoSigner';
+
+import 'rodal/lib/rodal.css';
 import './WalletModal.scss';
 
 interface Props {
@@ -33,6 +32,7 @@ const WalletModal: React.FC<Props> = ({openWalletModal, toggleWalletModal}) => {
 
   async function connectToAlgoSignerWallet() {
     const accountAddress = await connectToAlgoSigner();
+
     dispatch(setAccountAddress(accountAddress));
     dispatch(setAccountNet(LEDGER_NAME));
 
@@ -48,17 +48,17 @@ const WalletModal: React.FC<Props> = ({openWalletModal, toggleWalletModal}) => {
       height={200}
       showCloseButton={true}
     >
-      <div className="Wallet-modal">
-        <div className="Wallet-modal-header">
-          <div className="Wallet-modal-header-image">
+      <div className="wallet-modal">
+        <div className="wallet-modal-header">
+          <div className="wallet-modal-header-image">
             <img className="App-logo-modal" src="/logo.png" alt="AlgoSwap" />
           </div>
           Connect to a wallet
         </div>
-        <button className="Wallet-modal-select" onClick={connectToAlgoSignerWallet}>
-          <div className="Wallet-modal-item">
+        <button className="wallet-modal-select" onClick={connectToAlgoSignerWallet}>
+          <div className="wallet-modal-select-item">
             AlgoSigner
-            <img className="Wallet-logo-modal" src="/algosigner.png" alt="AlgoSigner" />
+            <img className="wallet-modal-select-item__img" src="/algosigner.png" alt="AlgoSigner" />
           </div>
         </button>
       </div>

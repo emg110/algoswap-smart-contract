@@ -1,4 +1,4 @@
-.CreatePair {
+.create-pair {
   position: relative;
   margin: auto;
   width: 100%;
@@ -8,7 +8,7 @@
   padding: 20px 1.5rem 20px 1.5rem;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
 
-  .CreatePair-header {
+  .create-pair-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,16 +16,16 @@
     font-size: 20px;
     font-weight: 600;
 
-    .CreatePair-header-title-section {
+    .create-pair-header-title-section {
       display: flex;
       align-items: center;
 
-      .CreatePair-header-title {
+      .create-pair-header-title {
         margin-left: 10px;
       }
     }
 
-    .CreatePair-header-button {
+    .create-pair-header-button {
       display: flex;
       align-items: center;
       background-color: transparent;
@@ -48,11 +48,11 @@
     }
   }
 
-  .CreatePair-plus {
+  .create-pair-plus {
     font-size: 16px;
   }
 
-  .CreatePair-add {
+  .create-pair-add {
     margin-top: 16px;
     background-color: #132d5a;
     color: #ffffff;
@@ -62,10 +62,10 @@
     cursor: pointer;
   }
 
-  .CreatePair-bottom {
+  .create-pair-bottom {
     margin-top: 25px;
 
-    .CreatePair-button {
+    .create-pair-button {
       background-color: #a30786;
       color: #ffffff;
       padding: 10px 15px;
@@ -83,7 +83,7 @@
       }
     }
 
-    .CreatePair-button-disabled {
+    .create-pair-button-disabled {
       background-color: lightgray !important;
       border: 1px solid lightgray !important;
     }

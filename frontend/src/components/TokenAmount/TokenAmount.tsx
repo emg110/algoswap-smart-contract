@@ -38,19 +38,19 @@ const TokenAmount: React.FC<Props> = ({
 
   return (
     <div
-      className={active ? ['TokenAmount-active', 'TokenAmount'].join(' ') : 'TokenAmount'}
+      className={active ? ['token-amount-active', 'token-amount'].join(' ') : 'token-amount'}
       onClick={onClick}
     >
-      <p className="TokenAmount-title">{title}</p>
-      <div className="TokenAmount-content">
+      <p className="token-amount-title">{title}</p>
+      <div className="token-amount-content">
         <input
-          className="TokenAmount-amount"
+          className="token-amount-content-amount"
           placeholder="0.0"
           type="number"
           onChange={evt => updateAmount(evt.target.value)}
           value={amount}
         />
-        <button className="TokenAmount-token-select" onClick={toggleTokenModal}>
+        <button className="token-amount-content-select" onClick={toggleTokenModal}>
           {token === '' ? 'Select' : token}
         </button>
       </div>

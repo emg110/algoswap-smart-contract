@@ -6,14 +6,13 @@
 // @ts-nocheck
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-
 import {selectSlippageTolerance} from '../../redux/reducers/transaction';
 import {setSlippageTolerance} from '../../redux/actions';
 
 /* eslint-disable */
 import Rodal from 'rodal';
-import 'rodal/lib/rodal.css';
 
+import 'rodal/lib/rodal.css';
 import './SettingsModal.scss';
 
 interface Props {
@@ -47,21 +46,19 @@ const SettingsModal: React.FC<Props> = ({openSettingsModal, toggleSettingsModal}
       height={200}
       showCloseButton={true}
     >
-      <div className="Settings-modal">
-        <div className="Settings-modal-header">Transaction Settings</div>
-        <div className="Settings-modal-slippage">
+      <div className="settings-modal">
+        <div className="settings-modal-header">Transaction Settings</div>
+        <div className="settings-modal-slippage">
           <span>Slippage Tolerance</span>
-          <div className="Settings-modal-slippage-content">
-            <input
-              className="Settings-modal-slippage-input"
-              placeholder={slippageTolerance.toFixed(2)}
-              type="number"
-              onChange={evt => updateSlippageTolerance(evt.target.value)}
-            />
-            %
-          </div>
+          <input
+            className="settings-modal-slippage-content"
+            placeholder={slippageTolerance.toFixed(2)}
+            type="number"
+            onChange={evt => updateSlippageTolerance(evt.target.value)}
+          />
+          %
         </div>
-        <div className="Settings-modal-info">
+        <div className="settings-modal-info">
           The transaction will revert if the price changes by more than this percentage.
         </div>
       </div>

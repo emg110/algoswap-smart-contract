@@ -8,8 +8,8 @@ import React from 'react';
 
 /* eslint-disable */
 import Rodal from 'rodal';
-import 'rodal/lib/rodal.css';
 
+import 'rodal/lib/rodal.css';
 import './TokenModal.scss';
 
 interface Props {
@@ -30,7 +30,7 @@ const TokenModal: React.FC<Props> = ({
 }) => {
   const modalStyle = {
     position: 'relative',
-    'border-radius': '30px',
+    borderRadius: '30px',
     top: '210px',
   };
 
@@ -39,23 +39,24 @@ const TokenModal: React.FC<Props> = ({
       width={420}
       customStyles={modalStyle}
       visible={openTokenModal}
+      onClose={toggleTokenModal}
       height={500}
       showCloseButton={false}
     >
-      <div className="TokenAmount-token-modal">
-        <div className="TokenAmount-token-modal-header">
-          <div className="TokenAmount-token-modal-header-image">
+      <div className="token-modal">
+        <div className="token-modal-header">
+          <div className="token-modal-header-image">
             <img className="App-logo-modal" src="/logo.png" alt="AlgoSwap" />
           </div>
           Select a token
         </div>
-        <div className="TokenAmount-token-modal-list">
+        <div className="token-modal-list">
           {tokenList &&
             tokenList.map(token => {
               if (token[0] === selectedToken) {
                 return (
                   <div
-                    className={['TokenAmount-token', 'TokenAmount-token-active'].join(' ')}
+                    className={['token-modal-list-token', 'token-modal-list-active'].join(' ')}
                     key={token[1]}
                     onClick={() => updateSelectedToken(token[0])}
                   >
@@ -65,7 +66,7 @@ const TokenModal: React.FC<Props> = ({
               }
               return (
                 <div
-                  className="TokenAmount-token"
+                  className="token-modal-list-token"
                   key={token[1]}
                   onClick={() => updateSelectedToken(token[0])}
                 >
@@ -74,8 +75,8 @@ const TokenModal: React.FC<Props> = ({
               );
             })}
         </div>
-        <div className="TokenAmount-token-modal-footer">
-          <button className="TokenAmount-token-modal-close-button" onClick={toggleTokenModal}>
+        <div className="token-modal-footer">
+          <button className="token-modal-footer-button" onClick={toggleTokenModal}>
             Close
           </button>
         </div>

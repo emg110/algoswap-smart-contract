@@ -1,28 +1,29 @@
-.SwapComponent-swap-modal {
+.swap-modal {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  .SwapComponent-swap-modal-header {
+  &-header {
     display: flex;
     padding: 10px;
     font-size: 18px;
     border-bottom: 1px solid lightgray;
     font-weight: 700;
-    .SwapComponent-swap-modal-header-image {
+
+    &-image {
       display: flex;
       align-items: center;
       margin-right: 5px;
     }
   }
 
-  .SwapComponent-swap-modal-txdetails {
+  &-body {
     display: flex;
     flex-direction: column;
     margin-top: 15px;
 
-    .SwapComponent-swap-modal-txdetail {
+    &-txdetail {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -31,11 +32,11 @@
       padding: 0px 20px;
     }
 
-    .SwapComponent-arrow {
+    &-arrow {
       font-size: 16px;
     }
 
-    .SwapComponent-swap-modal-subtitle {
+    &-subtitle {
       font-size: 12px;
       font-style: italic;
       color: gray;
@@ -44,7 +45,7 @@
       padding: 15px;
     }
 
-    .SwapComponent-swap-modal-txinfo {
+    &-txinfo {
       display: flex;
       justify-content: space-between;
       font-size: 20px !important;
@@ -55,10 +56,10 @@
     }
   }
 
-  .SwapComponent-swap-modal-bottom {
+  &-bottom {
     margin-top: 25px;
 
-    .SwapComponent-swap-modal-button {
+    &__button {
       background-color: #a30786;
       color: #ffffff;
       padding: 10px 15px;

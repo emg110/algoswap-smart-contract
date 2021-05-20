@@ -22,7 +22,6 @@ export default async function swapToken1ForToken2(
 
     console.log(txParams);
 
-
     // Call to validator
     let txn1 = {
       type: 'appl',
@@ -67,7 +66,7 @@ export default async function swapToken1ForToken2(
       genesisHash: txParams['genesis-hash'],
     };
 
-    console.log([txn1, txn2, txn3])
+    console.log([txn1, txn2, txn3]);
 
     let txnGroup = await algosdk.assignGroupID([txn1, txn2, txn3]);
 

@@ -5,7 +5,7 @@ import './PoolPage.scss';
 
 const PoolPage: React.FC = () => {
   return (
-    <div className="PoolPage">
+    <div className="pool-page">
       <LiquidityList />
     </div>
   );

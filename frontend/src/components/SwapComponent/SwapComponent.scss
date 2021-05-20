@@ -1,4 +1,4 @@
-.SwapComponent {
+.swapcomponent {
   position: relative;
   margin: auto;
   width: 100%;
@@ -8,20 +8,38 @@
   padding: 20px 1.5rem 20px 1.5rem;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
 
-  .SwapComponent-header {
+  &-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 600;
+
+    &-button {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: transparent;
+      border-radius: 50%;
+      padding: 5px;
+      outline: none;
+
+      &-logo {
+        height: 25px;
+      }
+
+      &:hover {
+        background-color: rgb(237, 237, 237);
+      }
+    }
   }
 
-  .SwapComponent-arrow {
+  &-arrow {
     font-size: 16px;
   }
 
-  .SwapComponent-info {
+  &-info {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
@@ -31,10 +49,10 @@
     padding: 0px 20px;
   }
 
-  .SwapComponent-bottom {
+  &-bottom {
     margin-top: 25px;
 
-    .SwapComponent-button {
+    &-button {
       background-color: #a30786;
       color: #ffffff;
       padding: 10px 15px;
@@ -52,26 +70,9 @@
       }
     }
 
-    .SwapComponent-button-disabled {
+    &-button-disabled {
       background-color: lightgray !important;
       border: 1px solid lightgray !important;
-    }
-  }
-
-  .Settings-button {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: transparent;
-    border-radius: 50%;
-    padding: 5px;
-    outline: none;
-
-    .Settings-logo {
-      height: 25px;
-    }
-    &:hover {
-      background-color: rgb(237, 237, 237);
     }
   }
 }

@@ -18,14 +18,13 @@ const AddPage: React.FC = () => {
   if (firstToken !== first) {
     dispatch(setFirstToken(first || ''));
     firstToken = first;
-  }
-  if (secondToken !== second) {
+  } else if (secondToken !== second) {
     dispatch(setSecondToken(second || ''));
     secondToken = second;
   }
 
   return (
-    <div className="AddPage">
+    <div className="add-page">
       <AddLiquidity
         firstToken={firstToken || ''}
         secondToken={secondToken || ''}

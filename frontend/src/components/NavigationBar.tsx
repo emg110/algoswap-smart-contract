@@ -16,19 +16,20 @@ const NavigationBar: React.FC = () => {
   const accountNet = useSelector(selectUserAccountNet);
   const dispatch = useDispatch();
 
-  async function connectToAlgoSignerWallet() {
+  const connectToAlgoSignerWallet = async () => {
     const fetchedAddress = await connectToAlgoSigner();
+
     dispatch(setAccountAddress(fetchedAddress));
     dispatch(setAccountNet(LEDGER_NAME));
-  }
+  };
 
   return (
-    <nav className="Navbar">
-      <div className="Navbar-left">
+    <nav className="navbar">
+      <div className="navbar-left">
         <Link to="/">
           <img className="App-logo-nav" src="/logo.png" alt="AlgoSwap" />
         </Link>
-        <div className={pathname === '/swap' ? 'Navbar-container-active' : 'Navbar-container'}>
+        <div className={pathname === '/swap' ? 'navbar-container-active' : 'navbar-container'}>
           <Link to="/swap">
             <p>Swap</p>
           </Link>
@@ -36,8 +37,8 @@ const NavigationBar: React.FC = () => {
         <div
           className={
             pathname === '/pool' || pathname === '/create' || pathname === '/add'
-              ? 'Navbar-container-active'
-              : 'Navbar-container'
+              ? 'navbar-container-active'
+              : 'navbar-container'
           }
         >
           <Link to="/pool">
@@ -45,17 +46,17 @@ const NavigationBar: React.FC = () => {
           </Link>
         </div>
       </div>
-      <div className="Navbar-right">
+      <div className="navbar-right">
         {accountAddr ? (
-          <div className="Navbar-user-context">
-            <div className="Navbar-account-net">{accountNet}</div>
-            <div className="Navbar-account-addr">
+          <div className="navbar-user-context">
+            <div className="navbar-account-net">{accountNet}</div>
+            <div className="navbar-account-addr">
               <img className="AlgoSigner-logo-nav" src="/algosigner.png" alt="AlgoSigner" />
               {accountAddr.slice(0, 10)}...{accountAddr.slice(-5)}
             </div>
           </div>
         ) : (
-          <button className="Navbar-connect-button" onClick={connectToAlgoSignerWallet}>
+          <button className="navbar-connect-button" onClick={connectToAlgoSignerWallet}>
             Connect to a wallet
           </button>
         )}

@@ -7,7 +7,6 @@ import {selectTokenList} from '../../redux/reducers/tokens';
 import {setTokenList, setFirstToken, setSecondToken} from '../../redux/actions';
 
 import TokenAmount from '../TokenAmount/TokenAmount';
-
 import SettingsModal from '../common/SettingsModal';
 import WalletModal from '../common/WalletModal';
 import CreatePairModal from './CreatePairModal';
@@ -22,6 +21,8 @@ interface Props {
 
 const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) => {
   const history = useHistory();
+  const dispatch = useDispatch();
+
   // Local state
   const [firstAmount, setFirstAmount] = useState<string>('');
   const [secondAmount, setSecondAmount] = useState<string>('');
@@ -37,8 +38,6 @@ const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) =>
   // Redux state
   const walletAddr = useSelector(selectUserAccountAddress);
   const tokenList = useSelector(selectTokenList);
-
-  const dispatch = useDispatch();
 
   const onFirstRender = () => {
     dispatch(
@@ -82,15 +81,15 @@ const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) =>
     if (firstAmount === '' || secondAmount === '') {
       return true;
     }
+
     return false;
   };
 
-  function setActiveTab(type: string) {
+  const setActiveTab = (type: string) => {
     if (firstTabSelected === false && secondTabSelected === false) {
       if (type === 'First') {
         setFirstTabSelected(true);
-      }
-      if (type === 'Second') {
+      } else if (type === 'Second') {
         setSecondTabSelected(true);
       }
     } else if (firstTabSelected === true) {
@@ -104,22 +103,22 @@ const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) =>
         setSecondTabSelected(false);
       }
     }
-  }
+  };
 
   return (
-    <div className="CreatePair">
-      <div className="CreatePair-header">
-        <div className="CreatePair-header-title-section">
-          <button className="CreatePair-header-button" onClick={() => history.goBack()}>
+    <div className="create-pair">
+      <div className="create-pair-header">
+        <div className="create-pair-header-title-section">
+          <button className="create-pair-header-button" onClick={() => history.goBack()}>
             <img className="Back-logo" src="/back.png" alt="Back" />
           </button>
-          <span className="CreatePair-header-title">Create a Pair</span>
+          <span className="create-pair-header-title">Create a Pair</span>
         </div>
-        <button className="CreatePair-header-button" onClick={toggleSettingsModal}>
+        <button className="create-pair-header-button" onClick={toggleSettingsModal}>
           <img className="Settings-logo" src="/settings.png" alt="Settings" />
         </button>
       </div>
-      <div className="CreatePair-content">
+      <div className="create-pair-content">
         <TokenAmount
           title="Amount"
           amount={firstAmount}
@@ -133,7 +132,7 @@ const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) =>
           active={firstTabSelected}
           onClick={() => setActiveTab('First')}
         />
-        <p className="CreatePair-plus">+</p>
+        <p className="create-pair-plus">+</p>
         <TokenAmount
           title="Amount"
           amount={secondAmount}
@@ -154,13 +153,13 @@ const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) =>
           onClick={() => setActiveTab('Second')}
         />
       </div>
-      <div className="CreatePair-bottom">
+      <div className="create-pair-bottom">
         {walletAddr ? (
           <button
             className={
               bothTokensNotSet()
-                ? ['CreatePair-button-disabled', 'CreatePair-button'].join(' ')
-                : 'CreatePair-button'
+                ? ['create-pair-button-disabled', 'create-pair-button'].join(' ')
+                : 'create-pair-button'
             }
             onClick={toggleSupplyModal}
             disabled={bothTokensNotSet()}
@@ -168,7 +167,7 @@ const CreatePair: React.FC<Props> = ({firstToken, secondToken, updateTokens}) =>
             Create a Pair
           </button>
         ) : (
-          <button className="CreatePair-button" onClick={toggleWalletModal}>
+          <button className="create-pair-button" onClick={toggleWalletModal}>
             Connect to a wallet
           </button>
         )}

@@ -50,36 +50,36 @@ const CreatePairModal: React.FC<Props> = ({
       height={430}
       showCloseButton={true}
     >
-      <div className="CreatePair-modal">
-        <div className="CreatePair-modal-header">
-          <div className="CreatePair-modal-header-image">
+      <div className="create-pair-modal">
+        <div className="create-pair-modal-header">
+          <div className="create-pair-modal-header-image">
             <img className="App-logo-modal" src="/logo.png" alt="AlgoSwap" />
           </div>
           Confirm Supply
         </div>
-        <div className="CreatePair-modal-supply-summary">
-          <span className="CreatePair-modal-supply-summary-info">Supply Summary</span>
+        <div className="create-pair-modal-summary">
+          <span className="create-pair-modal-summary-info">Supply Summary</span>
           <span>{parseFloat(firstAmount) / parseFloat(secondAmount)}</span>
-          <span className="CreatePair-modal-supply-summary-info">
+          <span className="create-pair-modal-summary-info">
             {firstToken}/{secondToken} Pool Tokens
           </span>
         </div>
-        <div className="CreatePair-modal-subtitle">
+        <div className="create-pair-modal-subtitle">
           Output is estimated. If the price changes by more than {slippageTolerance}%, your
           transaction will revert.
         </div>
-        <div className="CreatePair-modal-supply-details">
-          <div className="CreatePair-modal-supply-details-info">
+        <div className="create-pair-modal-details">
+          <div className="create-pair-modal-details-info">
             <span>{firstToken} Deposited</span>
             <span>{firstAmount}</span>
           </div>
-          <div className="CreatePair-modal-supply-details-info">
+          <div className="create-pair-modal-details-info">
             <span>{secondToken} Deposited</span>
             <span>{secondAmount}</span>
           </div>
         </div>
-        <div className="CreatePair-modal-bottom">
-          <button className="CreatePair-modal-button" onClick={toggleSupplyModal}>
+        <div className="create-pair-modal-bottom">
+          <button className="create-pair-modal-bottom__button" onClick={toggleSupplyModal}>
             Supply Liquidity
           </button>
         </div>

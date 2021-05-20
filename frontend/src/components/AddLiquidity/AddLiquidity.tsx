@@ -72,6 +72,7 @@ const AddLiquidity: React.FC<Props> = ({firstToken, secondToken, updateTokens}) 
     if (firstAmount === '' || secondAmount === '') {
       return true;
     }
+
     return false;
   };
 
@@ -79,16 +80,11 @@ const AddLiquidity: React.FC<Props> = ({firstToken, secondToken, updateTokens}) 
     onFirstRender();
   }, []);
 
-  const toggleModal = () => {
-    setOpenWalletModal(!openWalletModal);
-  };
-
-  function setActiveTab(type: string) {
+  const setActiveTab = (type: string) => {
     if (firstTabSelected === false && secondTabSelected === false) {
       if (type === 'First') {
         setFirstTabSelected(true);
-      }
-      if (type === 'Second') {
+      } else if (type === 'Second') {
         setSecondTabSelected(true);
       }
     } else if (firstTabSelected === true) {
@@ -102,72 +98,71 @@ const AddLiquidity: React.FC<Props> = ({firstToken, secondToken, updateTokens}) 
         setSecondTabSelected(false);
       }
     }
-  }
+  };
 
   return (
-    <div className="AddLiquidity">
-      <div className="AddLiquidity-header">
-        <div className="AddLiquidity-header-title-section">
-          <button className="AddLiquidity-header-button" onClick={() => history.goBack()}>
-            <img className="Back-logo" src="/back.png" alt="Back" />
+    <div className="add-liquidity">
+      <div className="add-liquidity-header">
+        <div className="add-liquidity-header-title">
+          <button className="add-liquidity-header-title-button" onClick={() => history.goBack()}>
+            <img className="add-liquidity-header-title-button__logo" src="/back.png" alt="Back" />
           </button>
-          <span className="AddLiquidity-header-title">Add Liquidity</span>
+          <span className="add-liquidity-header-title">Add Liquidity</span>
         </div>
-        <span>
-          <button className="AddLiquidity-header-button" onClick={toggleSettingsModal}>
-            <img className="Settings-logo" src="/settings.png" alt="Settings" />
-          </button>
-        </span>
+        <button className="add-liquidity-header-button" onClick={toggleSettingsModal}>
+          <img className="add-liquidity-header-button__logo" src="/settings.png" alt="Settings" />
+        </button>
       </div>
-      <div className="AddLiquidity-content">
-        <TokenAmount
-          title="Amount"
-          amount={firstAmount}
-          updateAmount={amount => setFirstAmount(amount)}
-          tokenList={tokenList}
-          token={firstToken}
-          updateToken={token => {
-            dispatch(setFirstToken(token));
-            updateTokens(token, secondToken);
-          }}
-          active={firstTabSelected}
-          onClick={() => setActiveTab('First')}
-        />
-        <p className="AddLiquidity-plus">+</p>
-        <TokenAmount
-          title="Amount"
-          amount={secondAmount}
-          updateAmount={amount => setSecondAmount(amount)}
-          tokenList={tokenList}
-          token={secondToken}
-          updateToken={token => {
-            if (firstToken === '') {
-              dispatch(setFirstToken(tokenList[0][0]));
-              dispatch(setSecondToken(token));
-              updateTokens(tokenList[0][0], token);
-            } else {
-              dispatch(setSecondToken(token));
-              updateTokens(firstToken, token);
-            }
-          }}
-          active={secondTabSelected}
-          onClick={() => setActiveTab('Second')}
-        />
-      </div>
-      <div className="AddLiquidity-bottom">
+      <TokenAmount
+        title="Amount"
+        amount={firstAmount}
+        updateAmount={amount => setFirstAmount(amount)}
+        tokenList={tokenList}
+        token={firstToken}
+        updateToken={token => {
+          dispatch(setFirstToken(token));
+          updateTokens(token, secondToken);
+        }}
+        active={firstTabSelected}
+        onClick={() => setActiveTab('First')}
+      />
+      <p className="add-liquidity-conetnt-plus">+</p>
+      <TokenAmount
+        title="Amount"
+        amount={secondAmount}
+        updateAmount={amount => setSecondAmount(amount)}
+        tokenList={tokenList}
+        token={secondToken}
+        updateToken={token => {
+          if (firstToken === '') {
+            dispatch(setFirstToken(tokenList[0][0]));
+            dispatch(setSecondToken(token));
+            updateTokens(tokenList[0][0], token);
+          } else {
+            dispatch(setSecondToken(token));
+            updateTokens(firstToken, token);
+          }
+        }}
+        active={secondTabSelected}
+        onClick={() => setActiveTab('Second')}
+      />
+      <div className="add-liquidity-bottom">
         {walletAddr ? (
           <button
             className={
               bothTokensNotSet()
-                ? ['AddLiquidity-button-disabled', 'AddLiquidity-button'].join(' ')
-                : 'AddLiquidity-button'
+                ? ['add-liquidity-bottom-button-disabled', 'add-liquidity-bottom-button'].join(' ')
+                : 'add-liquidity-bottom-button'
             }
             disabled={bothTokensNotSet()}
           >
             Add Liquidity
           </button>
         ) : (
-          <button className="AddLiquidity-button" onClick={toggleModal}>
+          <button
+            className="add-liquidity-bottom-button"
+            onClick={() => setOpenWalletModal(!openWalletModal)}
+          >
             Connect to a wallet
           </button>
         )}

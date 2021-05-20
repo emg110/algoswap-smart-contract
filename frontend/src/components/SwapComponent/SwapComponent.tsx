@@ -11,8 +11,6 @@ import SwapModal from './SwapModal';
 import SettingsModal from '../common/SettingsModal';
 import WalletModal from '../common/WalletModal';
 
-import {allPairDetails} from "../../constants";
-
 import './SwapComponent.scss';
 
 const SwapComponent: React.FC = () => {
@@ -79,6 +77,7 @@ const SwapComponent: React.FC = () => {
     if (fromAmount === '' || toAmount === '') {
       return true;
     }
+
     return false;
   };
 
@@ -104,16 +103,16 @@ const SwapComponent: React.FC = () => {
   };
 
   return (
-    <div className="SwapComponent">
-      <div className="SwapComponent-header">
+    <div className="swapcomponent">
+      <div className="swapcomponent-header">
         <span>Swap</span>
         <span>
-          <button className="Settings-button" onClick={toggleSettingsModal}>
-            <img className="Settings-logo" src="/settings.png" alt="Settings" />
+          <button className="swapcomponent-header-button" onClick={toggleSettingsModal}>
+            <img className="swapcomponent-header-button-logo" src="/settings.png" alt="Settings" />
           </button>
         </span>
       </div>
-      <div className="SwapComponent-content">
+      <div className="swapcomponent-content">
         <TokenAmount
           title="From"
           amount={fromAmount}
@@ -124,7 +123,7 @@ const SwapComponent: React.FC = () => {
           active={fromTabSelected}
           onClick={() => setActiveTab('From')}
         />
-        <p className="SwapComponent-arrow">↓</p>
+        <p className="swapcomponent-arrow">↓</p>
         <TokenAmount
           title="To"
           amount={toAmount}
@@ -136,17 +135,17 @@ const SwapComponent: React.FC = () => {
           onClick={() => setActiveTab('To')}
         />
       </div>
-      <div className="SwapComponent-info">
+      <div className="swapcomponent-info">
         <span>Slippage Tolerance:</span>
         <span>{slippageTolerance.toFixed(2)}%</span>
       </div>
-      <div className="SwapComponent-bottom">
+      <div className="swapcomponent-bottom">
         {walletAddr ? (
           <button
             className={
               bothTokensNotSet()
-                ? ['SwapComponent-button-disabled', 'SwapComponent-button'].join(' ')
-                : 'SwapComponent-button'
+                ? ['swapcomponent-bottom-button-disabled', 'swapcomponent-bottom-button'].join(' ')
+                : 'swapcomponent-bottom-button'
             }
             onClick={toggleSwapModal}
             disabled={bothTokensNotSet()}
@@ -154,7 +153,7 @@ const SwapComponent: React.FC = () => {
             Swap
           </button>
         ) : (
-          <button className="SwapComponent-button" onClick={toggleWalletModal}>
+          <button className="swapcomponent-bottom-button" onClick={toggleWalletModal}>
             Connect to a wallet
           </button>
         )}

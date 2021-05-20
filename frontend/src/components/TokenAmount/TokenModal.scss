@@ -1,24 +1,27 @@
-.TokenAmount-token-modal {
+.token-modal {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  .TokenAmount-token-modal-header {
+  &-header {
     display: flex;
     padding: 10px;
     font-size: 18px;
     border-bottom: 1px solid lightgray;
-    .TokenAmount-token-modal-header-image {
+
+    &-image {
       display: flex;
       align-items: center;
       margin-right: 5px;
     }
   }
-  .TokenAmount-token-modal-list {
+
+  &-list {
     flex: 1;
     overflow-y: auto;
-    .TokenAmount-token {
+
+    &-token {
       display: flex;
       border: 2px solid transparent;
       border-radius: 12px;
@@ -31,14 +34,15 @@
       }
     }
 
-    .TokenAmount-token-active {
+    &-token-active {
       background-color: whitesmoke;
     }
   }
 
-  .TokenAmount-token-modal-footer {
+  &-footer {
     border-top: 1px solid lightgray;
-    .TokenAmount-token-modal-close-button {
+
+    &-button {
       background-color: #a30786;
       color: #ffffff;
       padding: 10px 15px;

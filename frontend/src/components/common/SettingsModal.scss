@@ -1,11 +1,11 @@
-.Settings-modal {
+.settings-modal {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
   font-size: 1rem;
 
-  .Settings-modal-header {
+  &-header {
     display: flex;
     padding: 10px;
     font-size: 18px;
@@ -13,23 +13,21 @@
     font-weight: 700;
   }
 
-  .Settings-modal-slippage {
+  &-slippage {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 15px;
 
-    .Settings-modal-slippage-content {
-      .Settings-modal-slippage-input {
-        border: transparent;
-        outline: none;
-        font-size: 16px;
-        text-align: right;
-      }
+    &-content {
+      border: transparent;
+      outline: none;
+      font-size: 16px;
+      text-align: right;
     }
   }
 
-  .Settings-modal-info {
+  &-info {
     border-radius: 12px;
     border: 2px solid #a30786;
     margin-top: 15px;
